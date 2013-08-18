@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyProject</title>
+  <title>Circuit baby!</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+    <div class="navbar">
+    <ul class="nav navbar-nav">
+      <li>
+        <%= link_to 'Exercises', exercises_path, :class => "navbar" %> </li>
+        <li>
+        <%= link_to 'Body parts', body_parts_path, :class => "navbar" %> </li>
+    </ul>
+    </div>
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>
