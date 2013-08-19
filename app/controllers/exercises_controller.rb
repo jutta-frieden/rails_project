@@ -1,16 +1,26 @@
 class ExercisesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   # GET /exercises
   # GET /exercises.json
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.order(sort_column + ' ' + sort_direction)
   end
 
+#private
+def sort_column
+  params[:sort] || "name"
+end
+
+def sort_direction
+  params[:direction] || "asc"
+end
   # GET /exercises/1
   # GET /exercises/1.json
-  def show
-  end
+def show
+end
+
 
   # GET /exercises/new
   def new

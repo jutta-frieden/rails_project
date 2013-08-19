@@ -4,9 +4,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= sortable "name"%></th>
       <th>Description</th>
-      <th>Body part</th>
+      <th><%= link_to "Body part", :sort => "body_part_id"%></th>
       <th>Repetitions</th>
       <th></th>
       <th></th>
@@ -15,7 +15,6 @@
   </thead>
 
   <tbody>
-    <% @exercises.order('body_part.name')%>
     <% @exercises.each do |exercise| %>
       <tr>
         <td><%= exercise.name %></td>
