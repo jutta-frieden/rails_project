@@ -11,9 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818222222) do
+ActiveRecord::Schema.define(version: 20130820182548) do
 
   create_table "body_parts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circuit_exercises", force: true do |t|
+    t.integer  "circuit_id"
+    t.integer  "exercise_id"
+    t.integer  "repetitions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "circuits", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

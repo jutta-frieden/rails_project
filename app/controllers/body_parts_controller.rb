@@ -5,6 +5,12 @@ class BodyPartsController < ApplicationController
   # GET /body_parts.json
   def index
     @body_parts = BodyPart.all
+    case params[:sort]
+    when "name"
+       @body_parts = BodyPart.all.sort_by {|e| e.name }
+    else
+      @body_parts = BodyPart.all.sort_by {|e| e.name }
+    end
   end
 
   # GET /body_parts/1

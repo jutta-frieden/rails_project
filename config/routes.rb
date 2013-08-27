@@ -1,4 +1,6 @@
 MyProject::Application.routes.draw do
+  resources :circuits
+
   resources :body_parts
 
   resources :exercises

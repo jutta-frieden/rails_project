@@ -4,8 +4,19 @@ class ExercisesController < ApplicationController
 
   # GET /exercises
   # GET /exercises.json
-  def index
-    @exercises = Exercise.order(sort_column + ' ' + sort_direction)
+  def index 
+    @body_parts = BodyPart.all
+    case params[:sort]
+    when "name"
+      @exercises = Exercise.all.sort_by {|e| e.name }
+    when "body_part"
+      @exercises = Exercise.all.sort_by {|e| e.body_part.name }
+    else
+      @exercises = Exercise.all.sort_by {|e| e.name }
+    end
+    if params[:direction] == 'desc'
+      @exercises.reverse!
+    end
   end
 
 #private

@@ -1,0 +1,30 @@
+<h1>Listing circuits</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Exercises</th>
+      <!--<th></th>-->
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @circuits.each do |circuit| %>
+      <tr>
+        <td><%= link_to circuit.name, circuit %></td>
+        <td><%= circuit.exercise_list %></td>
+       
+        <!--<td><%= link_to 'Show', circuit %></td>-->
+        <td><%= link_to 'Edit', edit_circuit_path(circuit) %></td>
+        <td><%= link_to 'Delete', circuit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= button_to 'New Circuit', new_circuit_path, :class => "btn-success", :method => :get %>

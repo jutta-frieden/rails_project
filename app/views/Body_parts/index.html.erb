@@ -3,8 +3,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th></th>
+      <th><%= "name"%></th>
+      <!--<th></th>-->
       <th></th>
       <th></th>
     </tr>
@@ -13,10 +13,10 @@
   <tbody>
     <% @body_parts.each do |body_part| %>
       <tr>
-        <td><%= body_part.name %></td>
-        <td><%= link_to 'Show', body_part %></td>
+        <td><%= link_to body_part.name, body_part %></a></td>
+        <!--<td><%= link_to 'Show', body_part %></td>-->
         <td><%= link_to 'Edit', edit_body_part_path(body_part) %></td>
-        <td><%= link_to 'Destroy', body_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', body_part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,6 +24,6 @@
 
 <br>
 
-<p> Add a new body part that you want to train</p>
+<p> Add a new body part that you want to work out:</p>
 
 <%= button_to 'New body part', new_body_part_path, :class => "btn-success", :method => :get %>

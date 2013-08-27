@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  circuit_id: 1
+  exercise_id: 1
+  repetitions: 1
+
+two:
+  circuit_id: 1
+  exercise_id: 1
+  repetitions: 1

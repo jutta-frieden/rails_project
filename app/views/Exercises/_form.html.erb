@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :autofocus => true %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
@@ -27,7 +27,7 @@
     <%= f.label :repetitions %><br>
     <%= f.number_field :repetitions %>
   </div>
-  <div class="actions",class="btn-success">
+  <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
