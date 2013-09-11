@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Circuit baby!</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Circuit baby!</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
     <div class="navbar">
-    <ul class="nav navbar-nav">
-      <li>
-        <%= link_to image_tag("Jusara.png", height: "60") %>
-      </li>
-      <li>
-        <%= link_to 'Exercises', exercises_path, :class => "navbar" %> </li>
+      <ul class="nav navbar-nav">
         <li>
-        <%= link_to 'Body parts', body_parts_path, :class => "navbar" %> </li>
+          <%= link_to image_tag("Logo_JuSara.png", height: "70") %>
+        </li>
         <li>
-        <%= link_to 'Circuits', circuits_path, :class => "navbar" %> </li>
-    </ul>
+          <%= link_to 'Exercises', exercises_path, :class => "navbar" %>
+        </li>
+        <li>
+          <%= link_to 'Body parts', body_parts_path, :class => "navbar" %>
+        </li>
+        <li>
+          <%= link_to 'Circuits', circuits_path, :class => "navbar" %>
+        </li>
+        <li>
+          <% if current_user %>
+            <%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class =>"navbar" %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path, :class => "navbar" %>
+          <% end %>
+        </li>
+      </ul>
     </div>
-<div class="container">
-<%= yield %>
-</div>
-</body>
+    <div class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>
