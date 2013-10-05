@@ -5,9 +5,9 @@
   <thead>
     <tr>
       <th><%= sortable "name", "Exercise name"%></th>
-      <!--<th>Description</th>-->
+      <th>Description</th>
       <th><%= sortable "body_part", "Body part"%></th>
-      <th>Aim for ... repetitions</th>
+      <th>Repetitions</th>
       <!--<th></th>-->
       <th></th>
       <th></th>
@@ -18,7 +18,7 @@
     <% @exercises.each do |exercise| %>
       <tr>
         <td><%= link_to exercise.name , exercise%></td>
-        <!--<td><%= exercise.description %></td>-->
+        <td><%= exercise.description %></td>
         <td><%= exercise.body_part.name %></td>
         <td><%= exercise.repetitions %></td>
         <!--<td><%= link_to 'Show', exercise %></td>-->

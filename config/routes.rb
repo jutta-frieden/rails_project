@@ -1,12 +1,9 @@
 MyProject::Application.routes.draw do
-  devise_for :users
   resources :circuits
 
   resources :body_parts
 
   resources :exercises
-
-  root 'circuits#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
