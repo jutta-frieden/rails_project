@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Circuit baby!</title>
+    <title>JuSara | Get circuiting!</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="navbar">
+    <div class="navbar navbar-fixed-top small-nav">
       <ul class="nav navbar-nav">
         <li>
-          <%= image_tag(asset_path('Logo_JuSara.png')) %>
+          <%= image_tag(asset_path('Logo_JuSara.png'), :height => 50) %>
         </li>
         <li>
           <%= link_to 'Exercises', exercises_path, :class => "navbar" %>
@@ -22,11 +22,11 @@
         <li>
           <%= link_to 'Circuits', circuits_path, :class => "navbar" %>
         </li>
-        <li>
+        <li class="navbar-form pull-right">
           <% if current_user %>
             <%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class =>"navbar" %>
           <% else %>
-            <%= link_to 'Sign in', new_user_session_path, :class => "navbar" %>
+            <%= link_to 'Sign in', new_user_session_path %>
           <% end %>
         </li>
       </ul>
