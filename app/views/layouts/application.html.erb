@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>JuSara | Get circuiting!</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css">
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div class="navbar navbar-fixed-top small-nav">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= image_tag(asset_path('Logo_JuSara.png'), :height => 50) %>
-        </li>
-        <li>
-          <%= link_to 'Exercises', exercises_path, :class => "navbar" %>
-        </li>
-        <li>
-          <%= link_to 'Body parts', body_parts_path, :class => "navbar" %>
-        </li>
-        <li>
-          <%= link_to 'Circuits', circuits_path, :class => "navbar" %>
-        </li>
-      </ul>
+<head>
+  <title>JuSara | Get circuiting!</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrap">
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><%= image_tag(asset_path('Logo_JuSara.png'), :height => 50) %></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to 'Exercises', exercises_path, :class => "navbar" %>
+            </li>
+            <li>
+              <%= link_to 'Body parts', body_parts_path, :class => "navbar" %>
+            </li>
+            <li>
+              <%= link_to 'Circuits', circuits_path, :class => "navbar" %>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= sign_in_out_link(current_user) %></li>
+          
+          </ul>
+        </div>
+      </div>
     </div>
+
     <div class="container">
       <% if notice %>
-        <p class="notice"><%= notice %></p>
+      <p class="notice"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert"><%= alert %></p>
+      <p class="alert"><%= alert %></p>
       <% end %>
       <%= yield %>
     </div>
-  </body>
+  </div>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</body>
 </html>

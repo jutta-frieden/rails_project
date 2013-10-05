@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree .
  */
-.small-nav {
-
-    margin-bottom: 0px;
+.page-header {
+    margin-top: 95px;
 }
